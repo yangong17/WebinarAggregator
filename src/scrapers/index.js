@@ -63,10 +63,11 @@ async function main() {
     }).join('\n');
 
     fs.writeFileSync(path.join(__dirname, '../../data/webinars.csv'), csvHeader + csvRows);
+    fs.writeFileSync(path.join(__dirname, '../../public/webinars.csv'), csvHeader + csvRows);
 
     console.log('\n' + '='.repeat(50));
     console.log(`Done! Saved ${allWebinars.length} webinars to data/webinars.json and data/webinars.csv`);
-    console.log(`Also copied to public/webinars.json for serving`);
+    console.log(`Also copied to public/webinars.json and public/webinars.csv for serving`);
     console.log(`Last updated: ${output.lastUpdated}`);
 }
 
