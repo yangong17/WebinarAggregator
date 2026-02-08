@@ -63,7 +63,14 @@ For a robust integration, you have two options:
 ### Option 1: Sync Table (Best for Data)
 To get the actual data into Coda as a filterable, formula-ready table:
 1. In Coda, type `/Source` and select **CSV**.
-2. Paste the raw CSV URL:
+2. Paste one of these URLs:
+   
+   **If your generic GitHub Pages link works (best for private repos):**
+   ```
+   https://yangong17.github.io/WebinarAggregator/public/webinars.csv
+   ```
+   
+   **If your repository is public:**
    ```
    https://raw.githubusercontent.com/yangong17/WebinarAggregator/main/data/webinars.csv
    ```
@@ -74,7 +81,7 @@ To view the full webpage inside Coda:
 1. Ensure GitHub Pages is enabled for your repository.
 2. Use the Embed formula:
    ```
-   =Embed("https://yangong17.github.io/WebinarAggregator/public/", width: 1200, height: 800)
+   =Embed("https://yangong17.github.io/WebinarAggregator/public/embed.html", width: 1000, height: 800)
    ```
 
 ## Project Structure
