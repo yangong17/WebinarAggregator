@@ -1,9 +1,9 @@
 name: Scrape Webinars
 
 on:
-  # Run daily at 6am UTC
+  # Run every 6 hours
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 */6 * * *'
   # Allow manual trigger
   workflow_dispatch:
 

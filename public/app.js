@@ -78,6 +78,40 @@ function updateStats(data) {
     }
 }
 
+/**
+ * Format a date string for display in a consistent format (e.g., "Jan 28, 2026").
+ * Returns "—" for empty/invalid dates.
+ */
+function formatDisplayDate(dateStr) {
+    if (!dateStr || dateStr.trim() === '') return '—';
+
+    // Try to parse the date
+    let parsed = new Date(dateStr);
+
+    // If direct parsing fails, try "Month DD, YYYY" format
+    if (isNaN(parsed.getTime())) {
+        const monthDayYear = dateStr.match(/([A-Za-z]+)\s+(\d{1,2}),?\s*(\d{4})?/);
+        if (monthDayYear) {
+            const month = monthDayYear[1];
+            const day = parseInt(monthDayYear[2]);
+            const year = monthDayYear[3] ? parseInt(monthDayYear[3]) : new Date().getFullYear();
+            parsed = new Date(`${month} ${day}, ${year}`);
+        }
+    }
+
+    // If we have a valid date, format it consistently
+    if (!isNaN(parsed.getTime())) {
+        return parsed.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+        });
+    }
+
+    // Return original if we can't parse it
+    return escapeHtml(dateStr);
+}
+
 function setupEventListeners() {
     // Search and filters
     elements.searchInput.addEventListener('input', debounce(filterAndRender, 300));
@@ -142,7 +176,7 @@ function renderTable() {
         <span class="status-badge ${webinar.status.toLowerCase().replace(/\s+/g, '-')}">${webinar.status}</span>
       </td>
       <td>
-        <span class="webinar-date">${escapeHtml(webinar.airDate || '—')}</span>
+        <span class="webinar-date">${formatDisplayDate(webinar.airDate)}</span>
       </td>
       <td>
         <div class="webinar-description" title="${escapeHtml(webinar.description || '')}">${escapeHtml(webinar.description || '—')}</div>
