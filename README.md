@@ -56,33 +56,18 @@ Open `http://localhost:3000` in your browser.
 
 The scraper will run and data will update in ~2-3 minutes.
 
-## Embedding in Coda
+## Syncing to Coda
 
-For a robust integration, you have two options:
+To get the webinar data into Coda as a live table:
 
-### Option 1: Sync Table (Best for Data)
-To get the actual data into Coda as a filterable, formula-ready table:
-1. In Coda, type `/Source` and select **CSV**.
-2. Paste one of these URLs:
-   
-   **If your generic GitHub Pages link works (best for private repos):**
+1. In your Coda doc, type `/Source` and select **CSV**.
+2. Paste this URL:
    ```
    https://yangong17.github.io/WebinarAggregator/public/webinars.csv
    ```
-   
-   **If your repository is public:**
-   ```
-   https://raw.githubusercontent.com/yangong17/WebinarAggregator/main/data/webinars.csv
-   ```
-3. Enable **Sync** to keep it updated daily.
+3. Set the sync schedule to **Daily**.
 
-### Option 2: Visual Embed (Best for Viewing)
-To view the full webpage inside Coda:
-1. Ensure GitHub Pages is enabled for your repository.
-2. Use the Embed formula:
-   ```
-   =Embed("https://yangong17.github.io/WebinarAggregator/public/embed.html", width: 1000, height: 800)
-   ```
+This file is automatically regenerated every time the data is refreshed.
 
 ## Project Structure
 
