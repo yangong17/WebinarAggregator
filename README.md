@@ -58,11 +58,24 @@ The scraper will run and data will update in ~2-3 minutes.
 
 ## Embedding in Coda
 
-Use the Embed formula with your GitHub Pages URL:
+For a robust integration, you have two options:
 
-```
-=Embed("https://YOUR_USERNAME.github.io/WebinarAggregator/")
-```
+### Option 1: Sync Table (Best for Data)
+To get the actual data into Coda as a filterable, formula-ready table:
+1. In Coda, type `/Source` and select **CSV**.
+2. Paste the raw CSV URL:
+   ```
+   https://raw.githubusercontent.com/yangong17/Vault/main/Compensation_Projects/WebinarAggregator/data/webinars.csv
+   ```
+3. Enable **Sync** to keep it updated daily.
+
+### Option 2: Visual Embed (Best for Viewing)
+To view the full webpage inside Coda:
+1. Ensure GitHub Pages is enabled for your repository.
+2. Use the Embed formula:
+   ```
+   =Embed("https://yangong17.github.io/Vault/Compensation_Projects/WebinarAggregator/public/", width: 1200, height: 800)
+   ```
 
 ## Project Structure
 
