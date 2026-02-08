@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A curated collection of compensation and total rewards webinars from industry leaders.">
+  <title>Webinar Aggregator | Compensation & Total Rewards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          <h1>Webinar Aggregator</h1>
+        </div>
+        <p class="tagline">Compensation & Total Rewards Webinars</p>
+      </div>
+      <div class="header-actions">
+        <button id="refreshBtn" class="btn btn-primary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 4v6h-6"/>
+            <path d="M1 20v-6h6"/>
+            <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+          </svg>
+          <span>Refresh Data</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-value" id="totalCount">--</span>
+        <span class="stat-label">Total Webinars</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="upcomingCount">--</span>
+        <span class="stat-label">Upcoming</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="onDemandCount">--</span>
+        <span class="stat-label">On Demand</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="lastUpdated">--</span>
+        <span class="stat-label">Last Updated</span>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search webinars..." />
+      </div>
+      <div class="filters">
+        <select id="sourceFilter">
+          <option value="">All Sources</option>
+          <option value="Pave">Pave</option>
+          <option value="WorldAtWork">WorldAtWork</option>
+          <option value="Syndio">Syndio</option>
+        </select>
+        <select id="statusFilter">
+          <option value="">All Status</option>
+          <option value="Upcoming">Upcoming</option>
+          <option value="On Demand">On Demand</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+      <table id="webinarTable">
+        <thead>
+          <tr>
+            <th data-sort="source">Source</th>
+            <th data-sort="title">Title</th>
+            <th data-sort="status">Status</th>
+            <th data-sort="airDate">Air Date</th>
+            <th>Description</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody id="webinarBody">
+          <tr class="loading-row">
+            <td colspan="6">
+              <div class="loading-spinner"></div>
+              <span>Loading webinars...</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Data aggregated from <a href="https://www.pave.com" target="_blank">Pave</a>, <a href="https://worldatwork.org" target="_blank">WorldAtWork</a>, and <a href="https://synd.io" target="_blank">Syndio</a></p>
+    </footer>
+  </div>
+
+  <!-- Refresh Modal -->
+  <div id="refreshModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Refresh Webinar Data</h2>
+        <button class="modal-close" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>To trigger a data refresh, you need a GitHub Personal Access Token with <code>repo</code> scope.</p>
+        <div class="form-group">
+          <label for="patInput">Personal Access Token</label>
+          <input type="password" id="patInput" placeholder="ghp_xxxxxxxxxxxx" />
+        </div>
+        <div class="form-group">
+          <label for="repoInput">Repository (owner/repo)</label>
+          <input type="text" id="repoInput" placeholder="username/WebinarAggregator" />
+        </div>
+        <p class="hint">Your token is stored locally in your browser and never sent anywhere except GitHub's API.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelRefresh">Cancel</button>
+        <button class="btn btn-primary" id="confirmRefresh">Trigger Refresh</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

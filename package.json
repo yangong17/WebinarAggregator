@@ -1,0 +1,16 @@
+{
+  "name": "webinar-aggregator",
+  "version": "1.0.0",
+  "description": "Aggregates webinars from Pave, WorldAtWork, and Syndio into a unified table.",
+  "main": "src/scrapers/index.js",
+  "scripts": {
+    "scrape": "node src/scrapers/index.js",
+    "start": "npx serve public -l 3000"
+  },
+  "keywords": ["webinar", "scraper", "compensation"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^21.0.0"
+  }
+}
