@@ -1,15 +1,7 @@
 {
-  "lastUpdated": "2026-02-10T03:23:17.864Z",
+  "lastUpdated": "2026-02-11T03:04:40.680Z",
   "count": 35,
   "webinars": [
-    {
-      "source": "WorldAtWork",
-      "title": "Compensation Tech Demo Day",
-      "status": "On Demand",
-      "airDate": "2026-02-10",
-      "description": "Demo Day",
-      "link": "https://worldatwork.org/product/redirect/a2WRj000004XI2HMAW"
-    },
     {
       "source": "WorldAtWork",
       "title": "Excel Case Study: Using Excel Tools and Formulas to Build a Dynamic Merit Matrix",
@@ -49,6 +41,14 @@
       "airDate": "2026-04-28",
       "description": "Exclusive • Members Only",
       "link": "https://worldatwork.org/product/redirect/a2WRj000004XLGHMA4"
+    },
+    {
+      "source": "WorldAtWork",
+      "title": "Compensation Tech Demo Day",
+      "status": "On Demand",
+      "airDate": "",
+      "description": "Demo Day",
+      "link": "https://worldatwork.org/product/redirect/a2WRj000004XI2HMAW"
     },
     {
       "source": "WorldAtWork",
